@@ -10,9 +10,7 @@ export class FooterComponent extends React.Component<any,any>{
                 © 2020 Andrew Spiteri, Ben Burke, Hoang Le, & Jared
                 Carter
                 <div>
-                  <em>
-                    Icons made by Good Ware and Smashicons from www.flaticon.com
-                  </em>
+                  
                 </div>
               </div>
             </div>
