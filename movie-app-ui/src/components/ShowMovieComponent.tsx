@@ -3,7 +3,8 @@ import axios from 'axios';
 
 
 
-let apiURL = 'http://www.omdbapi.com/?apikey=45c8ca64&i=';
+
+let apiURL = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&i=`
 
 
 export class ShowMovieComponent extends React.Component<any, any>{
@@ -97,7 +98,7 @@ export class ShowMovieComponent extends React.Component<any, any>{
                     </div>
                 </div>
 
-                <h3>{this.state.movie.Title}</h3>
+             
               
               </div>
               

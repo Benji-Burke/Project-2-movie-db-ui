@@ -11,3 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.main-display {
+  break-inside: avoid;
+  column-count: 3;
+}
+.card {
+  display: inline-block;
+  overflow: visible;
+  /* height: 550px; */
+}
+
+.card-image{
+  height: 400px; 
+  overflow: hidden;
+}
+
+.card-content {
+  height: 200px;
+}

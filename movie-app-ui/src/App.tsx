@@ -8,6 +8,9 @@ import { ShowMovieComponent } from './components/ShowMovieComponent';
 import { LoginComponent } from './components/LoginComponent';
 import { RegisterComponent } from './components/RegisterComponent';
 import {  SearchMoviesComponent } from './components/SearchMoviesComponent';
+import { NewReleasesComponent } from './components/NewReleasesComponent';
+
+
 
 
 
@@ -48,6 +51,10 @@ class App extends React.Component<any, IAppState> {
               render={props => (
                 <SearchMoviesComponent {...props} handleClick={this.handleClick} />
               )}
+            />
+            <Route
+                path='/new'
+                component={NewReleasesComponent}
             />
 
 
