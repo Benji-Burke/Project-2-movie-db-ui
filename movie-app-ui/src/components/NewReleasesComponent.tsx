@@ -2,7 +2,17 @@ import React from 'react';
 import axios from 'axios';
 
 
-let apiUrlBase = 'https://api.themoviedb.org/3/movie/upcoming?api_key=caeff64effe23f29a4bfd2659139c205&language=en-US&page=1'
+let apiUrlBase = `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_THE_MOVIE_DB}&language=en-US&page=1'`
+
+interface INewReleaseState{
+    newReleases: any[],
+    
+    id: string,
+    search: string,
+
+
+
+}
 
 export class NewReleasesComponent extends React.Component<any,any>{
     constructor(props:any){
@@ -12,7 +22,7 @@ export class NewReleasesComponent extends React.Component<any,any>{
             movie: {},
             id: '',
             search: '',
-            movieSelected: false
+            // movieSelected: false
         }
     }
 
@@ -34,9 +44,9 @@ export class NewReleasesComponent extends React.Component<any,any>{
 
 
 
-    render(){
-        return(
-            <h1>this is my new movies </h1>
+      render() {
+        return (
+            <h1>hello</h1>
         )
+      }
     }
-}
