@@ -8,8 +8,8 @@ import { ShowMovieComponent } from './components/ShowMovieComponent';
 import { LoginComponent } from './components/LoginComponent';
 import { RegisterComponent } from './components/RegisterComponent';
 import {  SearchMoviesComponent } from './components/SearchMoviesComponent';
+import { NavbarComponent } from './components/NavBarComponent';
 import { NewReleasesComponent } from './components/NewReleasesComponent';
-
 
 
 
@@ -41,9 +41,11 @@ class App extends React.Component<any, IAppState> {
   render(){
     return (
       <div className="App">
+        
         <h1>MovieFriend</h1>
-       
+        
       <Router>
+      <NavbarComponent/>
         <Switch>
         <Route
               path='/'
