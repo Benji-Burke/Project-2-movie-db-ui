@@ -48,6 +48,18 @@ footer{
   /* padding-top: 60px; */
 }
 
+.App-header2 {
+  background-color: #282c34;
+  min-height: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+
 .container {
   margin: 5px, 0, 40px, 0;
 }
