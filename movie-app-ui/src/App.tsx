@@ -5,10 +5,13 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { FooterComponent } from './components/FooterComponent';
 import { render } from '@testing-library/react';
 import { ShowMovieComponent } from './components/ShowMovieComponent';
-import { LoginComponent } from './components/LoginComponent';
+import  LoginComponent  from './components/redux/LoginContainer';
 import { RegisterComponent } from './components/RegisterComponent';
 import {  SearchMoviesComponent } from './components/SearchMoviesComponent';
 import { NavbarComponent } from './components/NavBarComponent';
+import { NewReleasesComponent } from './components/NewReleasesComponent';
+import { store } from './Store';
+import { Provider } from 'react-redux';
 
 
 
@@ -41,6 +44,7 @@ class App extends React.Component<any, IAppState> {
     return (
       <div className="App">
         
+        <Provider store={store}>
         <h1>MovieFriend</h1>
         
       <Router>
@@ -52,6 +56,10 @@ class App extends React.Component<any, IAppState> {
               render={props => (
                 <SearchMoviesComponent {...props} handleClick={this.handleClick} />
               )}
+            />
+            <Route
+                path='/new'
+                component={NewReleasesComponent}
             />
 
 
@@ -75,6 +83,7 @@ class App extends React.Component<any, IAppState> {
         </Switch>
       </Router>
       <FooterComponent/>
+      </Provider>
       </div>
     );
   }  
