@@ -7,9 +7,8 @@ export const apiLogin = async (username: string, password: string): Promise<obje
         password
     }
     try {
-        const response = await fetch('http://movie-env.m2ppetmuqd.us-east-2.elasticbeanstalk.com//auth', {
+        const response = await fetch('http://localhost:8080/movie/test', {
             method: 'POST',
-            credentials: 'include',
             body: JSON.stringify(credentials),
             headers: {
                 'Content-Type': 'application/json'
