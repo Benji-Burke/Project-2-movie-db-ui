@@ -12,7 +12,8 @@ interface IMovieSearchState{
     search: string,
     loading: boolean,
     searchNotWorking: boolean,
-    movieSelected: boolean
+    movieSelected: boolean,
+ 
     
 }
 
@@ -24,7 +25,9 @@ export class SearchMoviesComponent extends React.Component<any, IMovieSearchStat
             search: '',
             loading: false,
             searchNotWorking: true,
-            movieSelected: false
+            movieSelected: false,
+            
+        
             
         }
 
@@ -35,6 +38,8 @@ export class SearchMoviesComponent extends React.Component<any, IMovieSearchStat
             movieSelected: true
         });
     }
+
+
 
     handleSubmit=(event:any)=>{
         this.setState({
@@ -117,7 +122,11 @@ export class SearchMoviesComponent extends React.Component<any, IMovieSearchStat
                           <p>
                             {result.Type} release year: {result.Year}
                           </p>
+
+                         
                         </div>
+            
+
                       </div>
                     </a>
                   </div>
