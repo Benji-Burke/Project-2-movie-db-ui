@@ -30,7 +30,7 @@ export class NewReleasesComponent extends React.Component<any,any>{
         const response = await axios.get(`${apiUrlBase}`);
         const data = response.data;
         // console.log(response)
-        console.log('data:', data)
+        console.log('data:', data[0])
         this.setState({
           newReleases: data,
         });
