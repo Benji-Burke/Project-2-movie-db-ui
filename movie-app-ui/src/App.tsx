@@ -3,15 +3,17 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { FooterComponent } from './components/FooterComponent';
-import { render } from '@testing-library/react';
 import { ShowMovieComponent } from './components/ShowMovieComponent';
 import  LoginComponent  from './components/redux/LoginContainer';
 import { RegisterComponent } from './components/RegisterComponent';
 import {  SearchMoviesComponent } from './components/SearchMoviesComponent';
 import { NavbarComponent } from './components/NavBarComponent';
 import { NewReleasesComponent } from './components/NewReleasesComponent';
+
 import { store } from './Store';
 import { Provider } from 'react-redux';
+
+
 
 
 
