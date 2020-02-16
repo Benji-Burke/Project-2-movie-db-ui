@@ -82,9 +82,10 @@ export class LoginComponent extends React.Component<ILoginProps, ILoginState>{
                         </Col>
                     </FormGroup>
                     <Button color="danger">Login</Button>
+                   
                 </Form>
                 <p>{this.props.loginMessage}</p>
-                <Link to='/pokemon'>No NavBar yet</Link>
+                
             </div>
         )
     }

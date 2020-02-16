@@ -30,3 +30,9 @@ code {
 .card-content {
   height: 200px;
 }
+
+.username{ 
+position: absolute; 
+	top: 100px;
+  left: 30px;
+}

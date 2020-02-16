@@ -117,7 +117,10 @@ export class SearchMoviesComponent extends React.Component<any, IMovieSearchStat
                           <p>
                             {result.Type} release year: {result.Year}
                           </p>
+
                         </div>
+                        <span> <button>Favorite</button> <button>Like</button> </span>
+                        
                       </div>
                     </a>
                   </div>
