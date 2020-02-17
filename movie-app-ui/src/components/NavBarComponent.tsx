@@ -4,30 +4,40 @@ import {
   Nav,
   NavItem,
   NavLink,
+  NavbarToggler,
+  Collapse,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 export const NavbarComponent = (props:any) => {
+  const[isOpen, setIsOpen] = useState(false);
+
+  const toggle = () => setIsOpen(!isOpen);
 
   return (
     <div>
       <Navbar className ='App-header2'>
      
           <Nav>
-            <NavItem>
+            
+              
+              <NavItem>
               <Link to='/login'>Login</Link>
             </NavItem>
             <NavItem>
-              <NavLink href="/register">Register</NavLink>
+              <Link to="/register">Register</Link>
             </NavItem>
             <NavItem>
-              <NavLink href="/">Search Movies</NavLink>
+              <Link to="Profile">Profile</Link>
             </NavItem>
             <NavItem>
-              <NavLink href="/">Favorite Movies</NavLink>
+              <Link to="/">Search Movies</Link>
             </NavItem>
             <NavItem>
-              <NavLink href="/">Friends</NavLink>
+              <Link to="/">Liked Movies</Link>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/logout">Log out</NavLink>
             </NavItem>
 
           </Nav>

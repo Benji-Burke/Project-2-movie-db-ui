@@ -1,6 +1,7 @@
 import React, { SyntheticEvent } from 'react'
 import { FormGroup, Label, Input, Col, Button, Form } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { apiRegister } from '../remote/register/register_client';
 
 export class RegisterComponent extends React.Component <any, any> {
     constructor(props:any){
@@ -51,8 +52,11 @@ export class RegisterComponent extends React.Component <any, any> {
 
     submitRegister = async (event:SyntheticEvent) => {
         event.preventDefault()
-        let response: any = await
-        this.props.update
+         let RegisterMessage = await apiRegister(this.state.firstname,this.state.lastname ,this.state.username, this.state.password,this.state.email)
+        this.setState({
+            ...this.state,
+            RegisterMessage: RegisterMessage
+        })
     }
 
     render() {
