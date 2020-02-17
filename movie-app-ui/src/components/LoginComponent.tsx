@@ -16,7 +16,7 @@ interface ILoginProps {
 }
 
 
-export class LoginComponent extends React.Component<ILoginProps, ILoginState>{
+export class LoginComponent extends React.Component<any, ILoginState>{
     constructor(props: any) {
         super(props)
         this.state = {
@@ -45,6 +45,7 @@ export class LoginComponent extends React.Component<ILoginProps, ILoginState>{
     submitLogin = async (event: SyntheticEvent) => {
         event.preventDefault()
         this.props.updateCurrentUser(this.state.username,this.state.password)
+        this.props.history.push('/profile')
         
     }
 

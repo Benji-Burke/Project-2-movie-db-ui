@@ -8,6 +8,10 @@ const mapStateToProps = (state:IState) => {
     return {
         
         user:state.userState.currentUser
+
+
+
+        
     }
 }
 
