@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { SyntheticEvent } from 'react';
 import axios from 'axios';
+import {LikesComponent} from './LikesComponent';
 
 
 
 let apiURL = 'http://www.omdbapi.com/?apikey=45c8ca64&i=';
+let likeURL = 'http://localhost:8080/movie/like'
 
 
 export class ShowMovieComponent extends React.Component<any, any>{
@@ -12,21 +14,41 @@ export class ShowMovieComponent extends React.Component<any, any>{
         this.state ={
             movie: {},
             reviews: [],
-            userId: ''
-
+            userId: '',
+            likes: 0            
         }
     }
 
 
     componentDidMount(){
         this.getMovie();
+        let likeCount = this.getLikes
         this.setState({
-            userId: this.props.userId
+            userId: this.props.userId,
+            likes: likeCount
         })
     }
 
+    getLikes = async () => {
+        const likeResponse = await axios.get(`${likeURL}`);
+        const data = likeResponse.data
+        console.log(data.likes)
+        return data.likes;
+    }
 
-   
+    postIncrementLikes = async() => {
+        this.setState({
+            ...this.state,
+            likes: this.getLikes
+        })
+        
+        await axios.post(`${likeURL}`,{
+            id : this.props.imdbID,
+            title : this.state.movie.Title,
+            likes : this.state.likes,
+            userId: this.props.userId        
+        });
+    }
     
       async getMovie() {
         const response = await axios(`${apiURL}${this.props.imdbID}`);
@@ -58,6 +80,10 @@ export class ShowMovieComponent extends React.Component<any, any>{
                                 <img
                                 src={this.state.movie.Poster}
                                 onError={this.addDefaultSrc}/>
+                            </div>
+                            <div className='card-button'>
+                                <p>Likes: {this.state.likes}</p>
+                                <button onClick={this.postIncrementLikes}>Like</button>
                             </div>
                         </div>
                      </div>

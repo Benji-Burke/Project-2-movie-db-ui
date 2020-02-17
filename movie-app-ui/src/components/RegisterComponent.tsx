@@ -21,7 +21,7 @@ export class RegisterComponent extends React.Component <any, any> {
             firstname: event.target.value
         })
     }
-
+    
     updateLastname = (event:any) => {
         this.setState({
             ...this.state,

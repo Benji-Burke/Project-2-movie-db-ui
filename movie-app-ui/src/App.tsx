@@ -1,9 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { FooterComponent } from './components/FooterComponent';
-import { render } from '@testing-library/react';
 import { ShowMovieComponent } from './components/ShowMovieComponent';
 import { LoginComponent } from './components/LoginComponent';
 import { RegisterComponent } from './components/RegisterComponent';
