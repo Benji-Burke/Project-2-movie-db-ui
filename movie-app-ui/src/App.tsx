@@ -12,6 +12,7 @@ import ProfileComponent from './components/redux/ProfileContainer';
 import {MovieLikeComponent} from './components/MovieLikeComponent';
 import { store } from './Store';
 import { Provider } from 'react-redux';
+import { LogoutComponent } from './components/LogoutComponent';
 
 
 
@@ -76,9 +77,16 @@ class App extends React.Component<any, IAppState> {
               />
             )}
           />
+
+          
+           <Route
+          path='/logout' component={LogoutComponent}
+          />
           <Route
           path='/login' component={LoginComponent}
           />
+       
+          
           <Route
           path='/register' component={RegisterComponent}
           />
@@ -89,6 +97,11 @@ class App extends React.Component<any, IAppState> {
            <Route
           path='/movielike' component={MovieLikeComponent}
           />
+
+          
+
+         
+
         </Switch>
       </Router>
       <FooterComponent/>

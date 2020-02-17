@@ -65,6 +65,7 @@ export class SearchMoviesComponent extends React.Component<any, IMovieSearchStat
 
     render(){
         return(
+          
             <div className='container'>
         <form onSubmit={this.handleSubmit}>
           <div className='input-field'>

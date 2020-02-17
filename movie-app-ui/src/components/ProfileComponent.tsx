@@ -5,39 +5,23 @@ interface IProfileProps {
   user: any
   
 }
+
+
+
+let baseUrl = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}`
+
  export class ProfileComponent extends React.PureComponent<IProfileProps> {
   
   render(){
   return (
    <div>
     
-    <span className = "">
-      <span >
+  
+      
         <div className = 'username'>{this.props.user && this.props.user.username}</div>
-        <Card body>
-          <CardTitle>Favorite movie</CardTitle>
-          <CardText></CardText>
-        
-        </Card>
-      </span>
-      <span>
-        <Card body>
-          <CardTitle>Favorite movie</CardTitle>
-          <CardText></CardText>
-        </Card>
-      </span>
-      <span>
-        <Card body>
-          <CardTitle>Favorite movie</CardTitle>
-          <CardText></CardText>
-         
-        </Card>
-      </span>
-    </span>
+    
     </div>
   );
   }
 }
-
-
-
+  

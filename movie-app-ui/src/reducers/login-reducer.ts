@@ -5,6 +5,7 @@ import { loginTypes } from "../action-mappers/login-actions";
 const initialState:IUserState = {
     currentUser:null,
     loginMessage:''
+    
 }
 
 
@@ -18,6 +19,8 @@ export const loginReducer = (state = initialState, action:any) => {
                 ...state,
                 currentUser:action.payload.currentUser,
                 loginMessage: 'You have Logged in'
+                
+                
             }
         }
         case loginTypes.UNSUCCESSFUL_LOGIN: {
