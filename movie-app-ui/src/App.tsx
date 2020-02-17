@@ -13,11 +13,6 @@ import { NewReleasesComponent } from './components/NewReleasesComponent';
 import { store } from './Store';
 import { Provider } from 'react-redux';
 
-
-
-
-
-
 interface IAppState {
   imdbId: string
   movieSelected: boolean
@@ -57,7 +52,9 @@ class App extends React.Component<any, IAppState> {
               exact
               render={props => (
                 <SearchMoviesComponent {...props} handleClick={this.handleClick} />
+                
               )}
+            
             />
             <Route
                 path='/new'

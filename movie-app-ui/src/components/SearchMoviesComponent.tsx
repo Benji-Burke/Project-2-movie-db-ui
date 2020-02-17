@@ -50,6 +50,7 @@ export class SearchMoviesComponent extends React.Component<any, IMovieSearchStat
         )
         .then(response=>response.json())
         .then(data=>{
+          console.log(data)
             this.setState({
                 results: data.Search,
                 loading: false
@@ -122,11 +123,11 @@ export class SearchMoviesComponent extends React.Component<any, IMovieSearchStat
                           <p>
                             {result.Type} release year: {result.Year}
                           </p>
-
+                        
                          
                         </div>
             
-
+                        
                       </div>
                     </a>
                   </div>
