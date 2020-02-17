@@ -3,10 +3,18 @@ import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { FooterComponent } from './components/FooterComponent';
 import { ShowMovieComponent } from './components/ShowMovieComponent';
-import { LoginComponent } from './components/LoginComponent';
+import  LoginComponent  from './components/redux/LoginContainer';
 import { RegisterComponent } from './components/RegisterComponent';
 import {  SearchMoviesComponent } from './components/SearchMoviesComponent';
 import { NavbarComponent } from './components/NavBarComponent';
+import { NewReleasesComponent } from './components/NewReleasesComponent';
+import ProfileComponent from './components/redux/ProfileContainer';
+import {MovieLikeComponent} from './components/MovieLikeComponent';
+import { store } from './Store';
+import { Provider } from 'react-redux';
+import { LogoutComponent } from './components/LogoutComponent';
+
+
 
 
 
@@ -39,6 +47,7 @@ class App extends React.Component<any, IAppState> {
     return (
       <div className="App">
         
+        <Provider store={store}>
         <h1>MovieFriend</h1>
         
       <Router>
@@ -50,6 +59,10 @@ class App extends React.Component<any, IAppState> {
               render={props => (
                 <SearchMoviesComponent {...props} handleClick={this.handleClick} />
               )}
+            />
+            <Route
+                path='/new'
+                component={NewReleasesComponent}
             />
 
 
@@ -64,15 +77,35 @@ class App extends React.Component<any, IAppState> {
               />
             )}
           />
+
+          
+           <Route
+          path='/logout' component={LogoutComponent}
+          />
           <Route
           path='/login' component={LoginComponent}
           />
+       
+          
           <Route
           path='/register' component={RegisterComponent}
           />
+
+          <Route
+          path='/profile' component={ProfileComponent}
+          />
+           <Route
+          path='/movielike' component={MovieLikeComponent}
+          />
+
+          
+
+         
+
         </Switch>
       </Router>
       <FooterComponent/>
+      </Provider>
       </div>
     );
   }  

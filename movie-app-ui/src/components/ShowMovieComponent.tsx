@@ -4,8 +4,10 @@ import {LikesComponent} from './LikesComponent';
 
 
 
-let apiURL = 'http://www.omdbapi.com/?apikey=45c8ca64&i=';
+
 let likeURL = 'http://localhost:8080/movie/like'
+let apiURL = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&i=`
+
 
 
 export class ShowMovieComponent extends React.Component<any, any>{
@@ -123,7 +125,7 @@ export class ShowMovieComponent extends React.Component<any, any>{
                     </div>
                 </div>
 
-                <h3>{this.state.movie.Title}</h3>
+             
               
               </div>
               

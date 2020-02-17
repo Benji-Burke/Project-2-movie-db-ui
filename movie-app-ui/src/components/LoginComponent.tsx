@@ -2,34 +2,50 @@ import React, { SyntheticEvent } from 'react'
 import { FormGroup, Label, Input, Col, Button, Form } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-export class LoginComponent extends React.Component <any, any> {
-    constructor(props:any){
-        super(props);
-        this.state={
-            username: "",
-            password:"",
-            loginMessage:""
-        }
-    }
 
-    updateUsername = (event:any) => {
+
+interface ILoginState {
+    username: string
+    password: string
+    
+}
+
+interface ILoginProps {
+    updateCurrentUser: (u:string, p:string) => void
+    loginMessage: string
+}
+
+
+export class LoginComponent extends React.Component<ILoginProps, ILoginState>{
+    constructor(props: any) {
+        super(props)
+        this.state = {
+            username: '',
+            password: '',
+        }
+      
+    }
+    
+    updateUsername = (event: any) => {
         this.setState({
             ...this.state,
             username: event.target.value
         })
+
     }
 
-    updatePassword = (event:any) => {
+    updatePassword = (event: any) => {
         this.setState({
             ...this.state,
-          password: event.target.value
+            password: event.target.value
         })
     }
 
-    submitLogin = async (event:SyntheticEvent) => {
+
+    submitLogin = async (event: SyntheticEvent) => {
         event.preventDefault()
-        let response: any = await
-        this.props.update
+        this.props.updateCurrentUser(this.state.username,this.state.password)
+        
     }
 
     render() {
@@ -46,7 +62,7 @@ export class LoginComponent extends React.Component <any, any> {
                                 placeholder="put username here"
                                 value={this.state.username}
                                 onChange={this.updateUsername} />
-                            {/* this is an example of data binding, we take data from the state and put it in our tsx */}
+                           
                         </Col>
                     </FormGroup>
                     <FormGroup row>
@@ -62,11 +78,11 @@ export class LoginComponent extends React.Component <any, any> {
                         </Col>
                     </FormGroup>
                     <Button color="danger">Login</Button>
+                   
                 </Form>
-                <p>{this.state.loginMessage}</p>
-                <Link to='/pokemon'>No NavBar yet</Link>
+                <p>{this.props.loginMessage}</p>
+                
             </div>
         )
     }
-    
 }
