@@ -13,6 +13,7 @@ import {MovieLikeComponent} from './components/MovieLikeComponent';
 import { store } from './Store';
 import { Provider } from 'react-redux';
 import { LogoutComponent } from './components/LogoutComponent';
+import ManagerComponent  from './components/redux/ManagerContainer';
 
 
 
@@ -81,6 +82,10 @@ class App extends React.Component<any, IAppState> {
           
            <Route
           path='/logout' component={LogoutComponent}
+          />
+
+          <Route
+          path='/manager' component={ManagerComponent}
           />
           <Route
           path='/login' component={LoginComponent}

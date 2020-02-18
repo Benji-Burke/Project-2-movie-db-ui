@@ -37,8 +37,12 @@ export const NavbarComponent = (props:any) => {
               <Link to="/">Liked Movies</Link>
             </NavItem>
             <NavItem>
+              <Link to="/manager">Manager</Link>
+            </NavItem>
+            <NavItem>
               <NavLink href="/logout">Log out</NavLink>
             </NavItem>
+            
 
           </Nav>
         
