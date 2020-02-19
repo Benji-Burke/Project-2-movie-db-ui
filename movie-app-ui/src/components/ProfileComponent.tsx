@@ -21,12 +21,7 @@ interface IProfileProps {
 }
   
   render(){
-    const displayList: ProfileComponent[] = this.state.movies.map<any>((movies: any) => {
-      return <ProfileComponent apiId={movies.id}
-          name={movies.name}
-          types={[movies.types[0].type.name, movies.types[1] && movies.types[1].type.name]}
-      />
-  }
+
   return (
    <div>
     
@@ -37,7 +32,7 @@ interface IProfileProps {
         <Card>
                 <CardBody>
                     
-                    <CardSubtitle>{this.props.movie}</CardSubtitle>
+                    <CardSubtitle>{this.props.movies}</CardSubtitle>
                     
                 </CardBody>
             </Card>
