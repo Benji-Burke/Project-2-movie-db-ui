@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { IState } from "../../reducers";
-import { ProfileComponent } from "../ProfileComponent";
+import { ManagerComponent } from "../ManagerComponent";
 import { updateCurrentUser } from '../../action-mappers/login-actions'
 
 
@@ -13,4 +13,4 @@ const mapStateToProps = (state:IState) => {
 
 
 
-export default connect(mapStateToProps)(ProfileComponent)
+export default connect(mapStateToProps)(ManagerComponent)

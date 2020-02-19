@@ -1,14 +1,10 @@
-export const apiRegister = async (firstName: string, lastName: string, username: string, password: string, email:string): Promise<string> => {
+export const apiUnblock = async ( username: string, role: string): Promise<string> => {
     let credentials = {
-        firstName,
-        lastName,
         username,
-        password,
-        email,
-        failTime : 0
+        role
     }
     try {
-        const response = await fetch('http://movie-env.m2ppetmuqd.us-east-2.elasticbeanstalk.com/users', {
+        const response = await fetch('http://movie-env.m2ppetmuqd.us-east-2.elasticbeanstalk.com/unblock', {
             method: 'POST',
             body: JSON.stringify(credentials),
             headers: {
@@ -18,9 +14,13 @@ export const apiRegister = async (firstName: string, lastName: string, username:
         if (response.status === 200) {
             const body = await response.json()
             console.log(body)
-            return 'successful register'
-        } else if(response.status === 401){
-            return "username used"
+            return 'successful unblock user'
+        } else if(response.status === 203){
+            return "you are not admin"
+        }
+
+         else if(response.status === 401){
+            return "Something Went Wrong"
         } else {
             return "Something Went Wrong"
         }
