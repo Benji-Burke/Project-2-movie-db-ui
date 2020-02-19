@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 
@@ -8,28 +9,30 @@ let apiURL = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&i=
 
 
 export class ShowMovieComponent extends React.Component<any, any>{
+    movie: any;
     constructor(props:any){
         super(props);
         this.state ={
             movie: {},
-            reviews: [],
+           imdbID: '',
             userId: ''
 
         }
     }
 
+    // componentDidMount(){
+    //     this.getMovie();
+    //     this.setState({
+    //         userId: this.props.userId
+    //     })
+    // }
 
-    componentDidMount(){
-        this.getMovie();
-        this.setState({
-            userId: this.props.userId
-        })
+    async componentDidMount(){
+        await this.getMovie();
     }
-
-
-   
     
-      async getMovie() {
+
+    async getMovie() {
         const response = await axios(`${apiURL}${this.props.imdbID}`);
         console.log('response: ', response);
         const data = response.data;
@@ -37,29 +40,52 @@ export class ShowMovieComponent extends React.Component<any, any>{
         console.log('id: ', this.props.imdbID);
         console.log('data: ', data);
         this.setState({
-          movie: data
+            movie: data
         });
         console.log(this.state.movie.Title);
-      }
+        console.log(this.state.movie.imdbID)
+    }
     
-
-    
-      addDefaultSrc(event:any) {
+    addDefaultSrc(event:any) {
         event.target.src =
-          'https://images.unsplash.com/photo-1512149177596-f817c7ef5d4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=945&q=80';
-      }
+        'https://images.unsplash.com/photo-1512149177596-f817c7ef5d4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=945&q=80';
+    }
 
-      render(){
-          return(
+    getMovieFavorite(movie:any){
+        this.setState({movie: movie});
+        console.log('click', movie)
+    }
+
+    handleAddFavoriteList=(id:any)=>{
+        this.setState({
+          imdbID: id,
+        })
+        console.log('clicked', this.state.imdbID);
+        console.log(id)
+      }
+    
+    render(){
+        return(
               <div>
                 <div className='row'>
                     <div className='col s12 m4'>
                         <div className='card'>
+                      
                             <div className='card-image'>
+                         
+                           
                                 <img
                                 src={this.state.movie.Poster}
                                 onError={this.addDefaultSrc}/>
                             </div>
+                            <button
+                    
+                 ><div ><Link to={`/Movies/favorites`}
+                 onClick={(id)=>{
+                   this.props.handleAddFavoriteList(this.movie.imdbID)
+                 }}
+                 >Select</Link></div></button>
+                            
                         </div>
                      </div>
                      <div className='col s12 m6'>
@@ -92,14 +118,15 @@ export class ShowMovieComponent extends React.Component<any, any>{
                         <div className='card-action'>
                             <p>Awards: {this.state.movie.Awards || 'none'}</p>
                         </div>
-
-
                      </div>
+                     
                     </div>
-                </div>
 
-             
-              
+                
+                  
+                    
+          
+                    </div>
               </div>
               
           )

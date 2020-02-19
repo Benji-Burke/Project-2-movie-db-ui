@@ -1,4 +1,7 @@
 import React from 'react';
+import FavoriteComponent from './FavoriteComponent';
+import { FavoriteContainer } from './FavoriteContainer';
+import { Link } from 'react-router-dom';
 // require('dotenv').config();
 // const key = process.env.REACT_APP_API_KEY;
 
@@ -9,29 +12,49 @@ let baseUrl = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}`
 
 interface IMovieSearchState{
     results: any[],
+    movie: {},
     search: string,
     loading: boolean,
     searchNotWorking: boolean,
     movieSelected: boolean,
+    movies: any
+    imdbID: string
  
     
 }
 
 export class SearchMoviesComponent extends React.Component<any, IMovieSearchState>{
+  [x: string]: any;
     constructor(props: any){
         super(props)
         this.state={
             results: [],
+            movie: {},
+            imdbID: '',
             search: '',
             loading: false,
             searchNotWorking: true,
             movieSelected: false,
-            
-        
-            
+            movies: ''
+
         }
 
     }
+
+    getMovieFavorite(movie:any){
+      this.setState({movie: movie});
+      console.log('click', movie)
+  }
+
+  handleAddFavoriteList=(id:any)=>{
+      this.setState({
+        imdbID: id,
+      })
+      console.log('clicked', this.state.imdbID);
+      console.log(id)
+    }
+
+
     handleChange=(event:any)=>{
         this.setState({
             search: event.target.value,
@@ -72,6 +95,7 @@ export class SearchMoviesComponent extends React.Component<any, IMovieSearchStat
     render(){
         return(
             <div className='container'>
+        
         <form onSubmit={this.handleSubmit}>
           <div className='input-field'>
             <input
@@ -100,6 +124,7 @@ export class SearchMoviesComponent extends React.Component<any, IMovieSearchStat
             ) : (
               this.state.results.map(result => {
                 return (
+                  <div className='div-container'>
                   <div className='col s12 m6 l4 ' key={result.imdbID}>
                     <a
                       onClick={() => {
@@ -126,17 +151,28 @@ export class SearchMoviesComponent extends React.Component<any, IMovieSearchStat
                         
                          
                         </div>
-            
-                        
                       </div>
                     </a>
+                    <button
+                    onClick={() => {
+                      this.props.handleAddFavoriteList(result.imdbID);
+                      this.props.history.push(
+                        `/movies/selected/${result.imdbID}`
+                      );
+                    }}
+                 >Select</button>
+                   </div>
                   </div>
                 );
               })
-            )}
-          </div>
-        }
-      </div>
+              )}
+              </div>
+              
+            }
+            </div>
+ 
+
+  
     );
   }
 }

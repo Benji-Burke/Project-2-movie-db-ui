@@ -12,20 +12,27 @@ import { NewReleasesComponent } from './components/NewReleasesComponent';
 
 import { store } from './Store';
 import { Provider } from 'react-redux';
+import FavoriteComponent from './components/FavoriteComponent';
 
 interface IAppState {
   imdbId: string
   movieSelected: boolean
   userId: string
+  Title: '',
+  movieFavorite: false
 }
 
 class App extends React.Component<any, IAppState> {
+  handleAddFavoriteList: any;
   constructor(props:any){
     super(props);
     this.state={
       imdbId: '',
       movieSelected: false,
+      movieFavorite: false,
       userId: '',
+      Title: '',
+    
 
     }
   }
@@ -35,6 +42,8 @@ class App extends React.Component<any, IAppState> {
     })
     
   }
+
+ 
 
 
   render(){
@@ -51,15 +60,28 @@ class App extends React.Component<any, IAppState> {
               path='/'
               exact
               render={props => (
-                <SearchMoviesComponent {...props} handleClick={this.handleClick} />
+                <SearchMoviesComponent {...props} handleClick={this.handleClick}
+                />
                 
-              )}
-            
+                )}
+               
+
+           
             />
             <Route
                 path='/new'
                 component={NewReleasesComponent}
             />
+
+            <Route
+                path='/favorites'
+                exact
+                render={props=>(
+                  <FavoriteComponent {...props} handleAddFavoriteList={this.handleAddFavoriteList}
+                  />
+                )}
+             
+                />
 
 
             <Route
@@ -73,6 +95,7 @@ class App extends React.Component<any, IAppState> {
               />
             )}
           />
+
           <Route
           path='/login' component={LoginComponent}
           />
