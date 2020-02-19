@@ -18,8 +18,7 @@ export const loginReducer = (state = initialState, action:any) => {
             return {//we always return the new state, which means, spread the old state
                 ...state,
                 currentUser:action.payload.currentUser,
-                loginMessage: 'You have Logged in'
-                
+                loginMessage: 'You have Logged in' 
                 
             }
         }

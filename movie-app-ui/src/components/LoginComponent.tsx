@@ -45,7 +45,7 @@ export class LoginComponent extends React.Component<any, ILoginState>{
     submitLogin = async (event: SyntheticEvent) => {
         event.preventDefault()
         this.props.updateCurrentUser(this.state.username,this.state.password)
-        this.props.history.push('/profile')
+       // this.props.history.push('/profile')
         
     }
 
