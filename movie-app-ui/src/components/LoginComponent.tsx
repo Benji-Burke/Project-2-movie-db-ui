@@ -1,6 +1,6 @@
 import React, { SyntheticEvent } from 'react'
 import { FormGroup, Label, Input, Col, Button, Form } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 
 
@@ -16,16 +16,19 @@ interface ILoginProps {
 }
 
 
-export class LoginComponent extends React.Component<any, ILoginState>{
+export class LoginComponent extends React.Component<ILoginProps, ILoginState>{
     constructor(props: any) {
         super(props)
         this.state = {
             username: '',
             password: '',
         }
-      
+        //by putting event binding and data binding together, we achieve something called two way data binding
+        //this is where the user can update state and if state is updated the user sees the change
     }
     
+    //this is an example of event binding
+    //we take an event created by a user, and use it to update data in our state
     updateUsername = (event: any) => {
         this.setState({
             ...this.state,
@@ -34,6 +37,8 @@ export class LoginComponent extends React.Component<any, ILoginState>{
 
     }
 
+    //this is an example of event binding
+    //we take an event created by a user, and use it to update data in our state
     updatePassword = (event: any) => {
         this.setState({
             ...this.state,
@@ -45,11 +50,36 @@ export class LoginComponent extends React.Component<any, ILoginState>{
     submitLogin = async (event: SyntheticEvent) => {
         event.preventDefault()
         this.props.updateCurrentUser(this.state.username,this.state.password)
-       // this.props.history.push('/profile')
-        
     }
 
     render() {
+
+        let a = this.props.loginMessage
+        if (a === 'You have Logged in') { // neu da login thi Redirect
+            return (
+                <div>
+                    <br/>
+                    <br/>
+                        <h1>Successful Login</h1>
+                        <br/>
+                        <br/>
+                        <br/>
+                <Link to="Profile">
+                <h5>click here to go to profile page</h5>
+                </Link>
+
+                
+                <Link to="/">
+                <h5>click here to go to home page</h5>
+                </Link>
+
+                </div>
+               
+            )
+                
+            
+        }
+
         return (
             <div>
                 <Form onSubmit={this.submitLogin}>
@@ -63,7 +93,7 @@ export class LoginComponent extends React.Component<any, ILoginState>{
                                 placeholder="put username here"
                                 value={this.state.username}
                                 onChange={this.updateUsername} />
-                           
+                            {/* this is an example of data binding, we take data from the state and put it in our tsx */}
                         </Col>
                     </FormGroup>
                     <FormGroup row>
