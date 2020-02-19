@@ -8,12 +8,12 @@ interface IProfileProps {
 
 }
 
-interface IPokemonState {
+interface IProfileState {
   allMovie:any[],
   activeIndex:number
 }
 
-export class ProfileComponent extends React.Component<IProfileProps, IPokemonState> {
+export class ProfileComponent extends React.Component<IProfileProps, IProfileState> {
   constructor(props:any){
       super(props)
       this.state = {
@@ -59,7 +59,11 @@ export class ProfileComponent extends React.Component<IProfileProps, IPokemonSta
 
       return (
           <div>
+            <h1>This is {this.props.user.username} Favorite list</h1>
                  {displayList} 
+                 <br/>
+                 <br/>
+                 <br/>
           </div>
       )
 
