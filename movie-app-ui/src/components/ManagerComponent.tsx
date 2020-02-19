@@ -64,85 +64,101 @@ interface ImanagerProps {
 
   
   render(){
-        if(this.props.user.role === "ADMIN"){
+
+
+        if (this.props.user != null){
+
+            if(this.props.user.role === "ADMIN"){
 
 
 
-            return (
-                <div>
+                return (
                     <div>
-                    <Form onSubmit={this.submitUnblock}>
-                    <FormGroup row>
-                        <Label for="exampleUsername" sm={2}>Unblock User</Label>
-                        <Col sm={10}>
-                            <Input required
-                                type="text"
-                                name="Username"
-                                id="blockUsername"
-                                placeholder="put username here to unblock"
-                                value={this.state.unblock}
-                                onChange={this.updateUnblock} />
-                            {/* this is an example of data binding, we take data from the state and put it in our tsx */}
-                        </Col>
-                    </FormGroup>
-                    <Button color="danger">Unblock</Button>
+                        <div>
+                        <Form onSubmit={this.submitUnblock}>
+                        <FormGroup row>
+                            <Label for="exampleUsername" sm={2}>Unblock User</Label>
+                            <Col sm={10}>
+                                <Input required
+                                    type="text"
+                                    name="Username"
+                                    id="blockUsername"
+                                    placeholder="put username here to unblock"
+                                    value={this.state.unblock}
+                                    onChange={this.updateUnblock} />
+                                {/* this is an example of data binding, we take data from the state and put it in our tsx */}
+                            </Col>
+                        </FormGroup>
+                        <Button color="danger">Unblock</Button>
+                       
+                    </Form>
+                    <p>{this.state.Message}</p>
+                
+                
+                        </div>
+                    
+                    <br/>
+                    <br/>
+                    <br/>
+                
+                <div>
+                <Form onSubmit={this.submitDelete}>
+                        <FormGroup row>
+                            <Label for="deleteuser" sm={2}>Delete user</Label>
+                            <Col sm={10}>
+                                <Input required
+                                    type="text"
+                                    name="UsernameDelete"
+                                    id="deleteUsername"
+                                    placeholder="put username here to delete"
+                                    value={this.state.delete}
+                                    onChange={this.updateDelete} />
+                                {/* this is an example of data binding, we take data from the state and put it in our tsx */}
+                            </Col>
+                        </FormGroup>
+                        <Button color="danger">Delete</Button>
+                       
+                    </Form>
+                    <p>{this.state.Message}</p>
+                    
+                </div>
+                    
+                </div>
                    
-                </Form>
-                <p>{this.state.Message}</p>
-            
-            
+                  )
+    
+    
+            }
+            else{
+    
+                return (
+                    <div>
+                        <br/>
+                        <br/>
+                            <h1>You Are Not Allow tobe here</h1>
+                            <br/>
+                            <br/>
+                    
+                    <Link to="/">
+                    <h5>click here to go to home page</h5>
+                    </Link>
+    
                     </div>
-                
-                <br/>
-                <br/>
-                <br/>
-            
-            <div>
-            <Form onSubmit={this.submitDelete}>
-                    <FormGroup row>
-                        <Label for="deleteuser" sm={2}>Delete user</Label>
-                        <Col sm={10}>
-                            <Input required
-                                type="text"
-                                name="UsernameDelete"
-                                id="deleteUsername"
-                                placeholder="put username here to delete"
-                                value={this.state.delete}
-                                onChange={this.updateDelete} />
-                            {/* this is an example of data binding, we take data from the state and put it in our tsx */}
-                        </Col>
-                    </FormGroup>
-                    <Button color="danger">Delete</Button>
-                   
-                </Form>
-                <p>{this.state.Message}</p>
-                
-            </div>
-                
-            </div>
-               
-              )
-
+                    )
+    
+            }
+    
 
         }
         else{
-
-            return (
+            return(
                 <div>
-                    <br/>
-                    <br/>
-                        <h1>You Are Not Allow tobe here</h1>
-                        <br/>
-                        <br/>
-                
-                <Link to="/">
-                <h5>click here to go to home page</h5>
-                </Link>
-
+                    <h1>Login First</h1>
                 </div>
-                )
-
+            )
         }
+       
+       
 
   
   }

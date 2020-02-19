@@ -8,7 +8,7 @@ export const apiRegister = async (firstName: string, lastName: string, username:
         failTime : 0
     }
     try {
-        const response = await fetch('http://localhost:8080/movie/users', {
+        const response = await fetch('http://movie-env.m2ppetmuqd.us-east-2.elasticbeanstalk.com/users', {
             method: 'POST',
             body: JSON.stringify(credentials),
             headers: {

@@ -4,7 +4,7 @@ export const apiUnblock = async ( username: string, role: string): Promise<strin
         role
     }
     try {
-        const response = await fetch('http://localhost:8080/movie/unblock', {
+        const response = await fetch('http://movie-env.m2ppetmuqd.us-east-2.elasticbeanstalk.com/unblock', {
             method: 'POST',
             body: JSON.stringify(credentials),
             headers: {

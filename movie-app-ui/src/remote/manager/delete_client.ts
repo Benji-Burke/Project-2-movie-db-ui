@@ -4,7 +4,7 @@ export const apiDelete = async ( username: string, role: string): Promise<string
         role
     }
     try {
-        const response = await fetch('http://localhost:8080/movie/delete', {
+        const response = await fetch('http://movie-env.m2ppetmuqd.us-east-2.elasticbeanstalk.com/delete', {
             method: 'POST',
             body: JSON.stringify(credentials),
             headers: {
