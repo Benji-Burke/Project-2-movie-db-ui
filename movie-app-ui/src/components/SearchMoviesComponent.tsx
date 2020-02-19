@@ -94,6 +94,7 @@ export class SearchMoviesComponent extends React.Component<any, IMovieSearchStat
 
     render(){
         return(
+          
             <div className='container'>
         
         <form onSubmit={this.handleSubmit}>
@@ -148,9 +149,9 @@ export class SearchMoviesComponent extends React.Component<any, IMovieSearchStat
                           <p>
                             {result.Type} release year: {result.Year}
                           </p>
-                        
-                         
                         </div>
+                        <span> <button>Favorite</button> <button>Like</button> </span>
+                        
                       </div>
                     </a>
                     <button
