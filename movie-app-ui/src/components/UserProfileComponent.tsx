@@ -13,7 +13,7 @@ interface IProfileState {
   activeIndex:number
 }
 
-export class ProfileComponent extends React.Component<IProfileProps, IProfileState> {
+export class UserProfileComponent extends React.Component<IProfileProps, IProfileState> {
   constructor(props:any){
       super(props)
       this.state = {
