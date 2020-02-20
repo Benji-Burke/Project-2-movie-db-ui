@@ -8,12 +8,12 @@ interface IProfileProps {
 
 }
 
-interface IPokemonState {
+interface IProfileState {
   allMovie:any[],
   activeIndex:number
 }
 
-export class ProfileComponent extends React.Component<IProfileProps, IPokemonState> {
+export class UserProfileComponent extends React.Component<IProfileProps, IProfileState> {
   constructor(props:any){
       super(props)
       this.state = {
@@ -50,7 +50,8 @@ export class ProfileComponent extends React.Component<IProfileProps, IPokemonSta
     if(this.props.user != null){
       const displayList:ProfileDisplayComponent[] = this.state.allMovie.map<any>((movie:any)=>{
         console.log(movie);
-         return <ProfileDisplayComponent id={movie.apiId} 
+         return <ProfileDisplayComponent
+          id={movie.apiId} 
           title={movie.Title}
          director={movie.Director}
           imgSrc = {movie.Poster}
@@ -59,7 +60,11 @@ export class ProfileComponent extends React.Component<IProfileProps, IPokemonSta
 
       return (
           <div>
+            <h1>This is {this.props.user.username} Favorite list</h1>
                  {displayList} 
+                 <br/>
+                 <br/>
+                 <br/>
           </div>
       )
 

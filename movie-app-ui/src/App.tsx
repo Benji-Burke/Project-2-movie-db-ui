@@ -14,6 +14,7 @@ import { store } from './Store';
 import { Provider } from 'react-redux';
 import { LogoutComponent } from './components/LogoutComponent';
 import ManagerComponent  from './components/redux/ManagerContainer';
+import { FavoriteComponent } from './components/FavoriteComponent';
 
 
 
@@ -76,8 +77,12 @@ class App extends React.Component<any, IAppState> {
                 imdbID={this.state.imdbId}
                 
               />
+              
             )}
           />
+
+          <Route
+          path='/favorite' component={FavoriteComponent} />
 
           
            <Route

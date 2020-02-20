@@ -28,7 +28,7 @@ export const NavbarComponent = (props:any) => {
               <Link to="/register">Register</Link>
             </NavItem>
             <NavItem>
-              <Link to="Profile">Profile</Link>
+              <Link to="/profile">Profile</Link>
             </NavItem>
             <NavItem>
               <Link to="/">Search Movies</Link>
@@ -38,6 +38,9 @@ export const NavbarComponent = (props:any) => {
             </NavItem>
             <NavItem>
               <Link to="/manager">Manager</Link>
+            </NavItem>
+            <NavItem>
+              <Link to="/searchProfile">Search User</Link>
             </NavItem>
             <NavItem>
               <NavLink href="/logout">Log out</NavLink>
