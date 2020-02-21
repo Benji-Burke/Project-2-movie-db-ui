@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url(./images/movie-reel-vector-199392.jpg);
 }
 
 code {
@@ -36,3 +37,7 @@ position: absolute;
 	top: 110px;
   left: 10px;
 }
+
+
+
+

@@ -61,7 +61,7 @@ export class RegisterComponent extends React.Component <any, any> {
 
     render() {
         return (
-            <div>
+            <div id="form-container">
                 <Form onSubmit={this.submitRegister}>
                 <FormGroup row>
                 <Label for="firstname"sm={2}>First name</Label>
