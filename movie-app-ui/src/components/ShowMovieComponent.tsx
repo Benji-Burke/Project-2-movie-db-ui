@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { SyntheticEvent } from 'react';
 import axios from 'axios';
+import { FavoriteComponent } from './FavoriteComponent';
+import { Form, Label, Col, FormGroup, Button } from 'reactstrap';
+import { apiUnblock } from '../remote/manager/unblock_client';
 
 
 
-let apiURL = 'http://www.omdbapi.com/?apikey=45c8ca64&i=';
+
+let apiURL = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&i=`
 
 
 export class ShowMovieComponent extends React.Component<any, any>{
@@ -12,7 +16,8 @@ export class ShowMovieComponent extends React.Component<any, any>{
         this.state ={
             movie: {},
             reviews: [],
-            userId: ''
+            userId: '',
+        
 
         }
     }
@@ -41,6 +46,15 @@ export class ShowMovieComponent extends React.Component<any, any>{
         console.log(this.state.movie.Title);
       }
     
+      submitFavorite = async (event:SyntheticEvent) => {
+        event.preventDefault()
+         let Message = await apiUnblock(this.state.unblock, this.props.user.role)
+        this.setState({
+            ...this.state,
+            Message: Message
+        })
+    }
+
 
     
       addDefaultSrc(event:any) {
@@ -59,6 +73,29 @@ export class ShowMovieComponent extends React.Component<any, any>{
                                 src={this.state.movie.Poster}
                                 onError={this.addDefaultSrc}/>
                             </div>
+                            <div>
+                            <Form onSubmit={this.submitFavorite}>
+                            <FormGroup row>
+                                <Label for="exampleUsername" sm={2}>favorite</Label>
+                                <Col sm={10}>
+                                   
+                                    {/* this is an example of data binding, we take data from the state and put it in our tsx */}
+                                </Col>
+                            </FormGroup>
+                            <Button color="danger">Favorite</Button>
+                           
+                        </Form>
+                        <p>{this.state.Message}</p>
+                    
+                    
+                            </div>
+                        
+                        <br/>
+                        <br/>
+                        <br/>
+                    <div>
+                        <p>{this.state.Message}</p>
+                    </div>
                         </div>
                      </div>
                      <div className='col s12 m6'>
@@ -95,9 +132,13 @@ export class ShowMovieComponent extends React.Component<any, any>{
 
                      </div>
                     </div>
-                </div>
 
-                <h3>{this.state.movie.Title}</h3>
+                
+                  
+                
+                </div>
+                
+             
               
               </div>
               

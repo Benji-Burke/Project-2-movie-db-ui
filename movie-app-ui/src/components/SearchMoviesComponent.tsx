@@ -1,6 +1,11 @@
 import React from 'react';
+// require('dotenv').config();
+// const key = process.env.REACT_APP_API_KEY;
 
-let baseUrl = 'http://www.omdbapi.com/?apikey=45c8ca64';
+
+
+//original
+let baseUrl = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}`
 
 interface IMovieSearchState{
     results: any[],
@@ -60,6 +65,7 @@ export class SearchMoviesComponent extends React.Component<any, IMovieSearchStat
 
     render(){
         return(
+          
             <div className='container'>
         <form onSubmit={this.handleSubmit}>
           <div className='input-field'>
@@ -99,21 +105,26 @@ export class SearchMoviesComponent extends React.Component<any, IMovieSearchStat
                       }}
                     >
                       {' '}
+                  
                       <div className='card'>
-                        <div className='card-image'>
-                          <img
-                            src={result.Poster}
-                            alt={result.Title}
-                            onError={this.addDefaultSrc}
-                          />
-                        </div>
-                        <div className='card-content center-align'>
-                          <h4 className='card-title'>{result.Title}</h4>
-                          <p>
-                            {result.Type} release year: {result.Year}
-                          </p>
-                        </div>
+                      <div className='card-image'>
+                        <img
+                          src={result.Poster}
+                          alt={result.Title}
+                          onError={this.addDefaultSrc}
+                        />
                       </div>
+                      <div className='card-content center-align'>
+                        <h4 className='card-title'>{result.Title}</h4>
+                        <p>
+                          {result.Type} release year: {result.Year}
+                        </p>
+
+                      </div>
+                    </div>
+                
+                   
+
                     </a>
                   </div>
                 );
