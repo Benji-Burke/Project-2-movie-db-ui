@@ -13,7 +13,7 @@ interface IProfileState {
   activeIndex:number
 }
 
-export class ProfileComponent extends React.Component<IProfileProps, IProfileState> {
+export class UserProfileComponent extends React.Component<IProfileProps, IProfileState> {
   constructor(props:any){
       super(props)
       this.state = {
@@ -50,7 +50,6 @@ export class ProfileComponent extends React.Component<IProfileProps, IProfileSta
     if(this.props.user != null){
       const displayList:ProfileDisplayComponent[] = this.state.allMovie.map<any>((movie:any)=>{
         console.log(movie);
-
          return <ProfileDisplayComponent
           id={movie.apiId} 
           title={movie.Title}
@@ -61,13 +60,11 @@ export class ProfileComponent extends React.Component<IProfileProps, IProfileSta
 
       return (
           <div>
-
             <h1>This is {this.props.user.username} Favorite list</h1>
                  {displayList} 
                  <br/>
                  <br/>
                  <br/>
-
           </div>
       )
 

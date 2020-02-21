@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { FooterComponent } from './components/FooterComponent';
-import { ShowMovieComponent } from './components/ShowMovieComponent';
+
 import  LoginComponent  from './components/redux/LoginContainer';
 import { RegisterComponent } from './components/RegisterComponent';
 import {  SearchMoviesComponent } from './components/SearchMoviesComponent';
@@ -14,7 +14,11 @@ import { store } from './Store';
 import { Provider } from 'react-redux';
 import { LogoutComponent } from './components/LogoutComponent';
 import ManagerComponent  from './components/redux/ManagerContainer';
-import { FavoriteComponent } from './components/FavoriteComponent';
+
+import ShowMovieComponent  from './components/redux/ShowMovieContainer';
+import  SearchProfileComponent  from './components/redux/SearchProfileContainer';
+import UserProfileComponent  from './components/redux/UserProfileContainer';
+
 
 
 
@@ -69,7 +73,7 @@ class App extends React.Component<any, IAppState> {
 
 
             <Route
-            path={`/Movies/selected/${this.state.imdbId}`}
+            path={`/Movies/selected/`}
             
             render={props => (
               <ShowMovieComponent
@@ -81,8 +85,6 @@ class App extends React.Component<any, IAppState> {
             )}
           />
 
-          <Route
-          path='/favorite' component={FavoriteComponent} />
 
           
            <Route
@@ -90,6 +92,13 @@ class App extends React.Component<any, IAppState> {
           />
 
           <Route
+
+          path='/searchProfile' component= {SearchProfileComponent}
+          />
+
+
+          <Route
+
           path='/manager' component={ManagerComponent}
           />
           <Route
@@ -104,6 +113,12 @@ class App extends React.Component<any, IAppState> {
           <Route
           path='/profile' component={ProfileComponent}
           />
+
+
+          <Route
+          path='/userprofile' component={UserProfileComponent}
+          />
+
            <Route
           path='/movielike' component={MovieLikeComponent}
           />

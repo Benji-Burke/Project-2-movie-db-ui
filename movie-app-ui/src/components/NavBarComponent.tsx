@@ -15,12 +15,10 @@ export const NavbarComponent = (props:any) => {
 
   const toggle = () => setIsOpen(!isOpen);
 
-  
-  
-
   return (
     <div>
       <Navbar className ='App-header2'>
+
       
       <Nav>
       <NavItem id='brand'>
