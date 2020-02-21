@@ -64,6 +64,7 @@ export class LoginComponent extends React.Component<ILoginProps, ILoginState>{
                         <br/>
                         <br/>
                         <br/>
+
                 <Link to="/profile">
                 <h5>click here to go to profile page</h5>
                 </Link>

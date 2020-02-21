@@ -14,6 +14,7 @@ import { store } from './Store';
 import { Provider } from 'react-redux';
 import { LogoutComponent } from './components/LogoutComponent';
 import ManagerComponent  from './components/redux/ManagerContainer';
+
 import ShowMovieComponent  from './components/redux/ShowMovieContainer';
 import  SearchProfileComponent  from './components/redux/SearchProfileContainer';
 import UserProfileComponent  from './components/redux/UserProfileContainer';
@@ -80,8 +81,10 @@ class App extends React.Component<any, IAppState> {
                 imdbID={this.state.imdbId}
                 
               />
+              
             )}
           />
+
 
           
            <Route
@@ -89,11 +92,13 @@ class App extends React.Component<any, IAppState> {
           />
 
           <Route
+
           path='/searchProfile' component= {SearchProfileComponent}
           />
 
 
           <Route
+
           path='/manager' component={ManagerComponent}
           />
           <Route
@@ -109,9 +114,11 @@ class App extends React.Component<any, IAppState> {
           path='/profile' component={ProfileComponent}
           />
 
+
           <Route
           path='/userprofile' component={UserProfileComponent}
           />
+
            <Route
           path='/movielike' component={MovieLikeComponent}
           />

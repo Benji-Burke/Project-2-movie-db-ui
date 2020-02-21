@@ -3,10 +3,12 @@ import { loginReducer } from "./login-reducer";
 import { searchReducer } from "./search-reducer";
 
 
+
 export interface IUserState {
     currentUser:any
     loginMessage:string
 }
+
 export interface ISearchState {
     searchUser:any
     searchMessage:string
@@ -19,6 +21,6 @@ export interface IState {
 export const state = combineReducers<IState>({
     userState:loginReducer,
     searchState:searchReducer
-   
+
 })
 

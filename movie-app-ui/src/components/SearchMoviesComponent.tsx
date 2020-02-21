@@ -105,6 +105,7 @@ export class SearchMoviesComponent extends React.Component<any, IMovieSearchStat
                       }}
                     >
                       {' '}
+                  
                       <div className='card'>
                         <div className='card-image'>
                           <img
@@ -122,7 +123,12 @@ export class SearchMoviesComponent extends React.Component<any, IMovieSearchStat
                         </div>
                         <span> <button>Favorite</button> <button>Like</button> </span>
                         
+
                       </div>
+                    </div>
+                
+                   
+
                     </a>
                   </div>
                 );

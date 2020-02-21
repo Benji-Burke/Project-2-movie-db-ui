@@ -50,6 +50,7 @@ export class ProfileComponent extends React.Component<IProfileProps, IProfileSta
     if(this.props.user != null){
       const displayList:ProfileDisplayComponent[] = this.state.allMovie.map<any>((movie:any)=>{
         console.log(movie);
+
          return <ProfileDisplayComponent
           id={movie.apiId} 
           title={movie.Title}
@@ -60,11 +61,13 @@ export class ProfileComponent extends React.Component<IProfileProps, IProfileSta
 
       return (
           <div>
+
             <h1>This is {this.props.user.username} Favorite list</h1>
                  {displayList} 
                  <br/>
                  <br/>
                  <br/>
+
           </div>
       )
 

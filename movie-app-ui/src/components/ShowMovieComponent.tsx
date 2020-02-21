@@ -1,8 +1,10 @@
 import React, { SyntheticEvent } from 'react';
 import axios from 'axios';
+
 import { FormGroup, Form, Label, Col, Button } from 'reactstrap';
 import { apiDelete } from '../remote/manager/delete_client';
 import { apiFavorite } from '../remote/addFavorite/addFavorite_client';
+
 
 
 // make redux to send user state to showMovieComponent( actually you just need to create a container, can check the profile page container for ex)
@@ -11,6 +13,7 @@ import { apiFavorite } from '../remote/addFavorite/addFavorite_client';
 // also have to make 2 clinet that will interact with database ( mostly coppy and paste)
 // back end already have some thing to connect with favorite list 
 // that is it for like and favorite 
+
 
 let apiURL = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&i=`
 
@@ -21,13 +24,15 @@ interface IshowProps {
   }
 
 
+
 export class ShowMovieComponent extends React.Component<any, any>{
     constructor(props:any){
         super(props);
         this.state ={
             movie: {},
             reviews: [],
-            userId: ''
+            userId: '',
+        
 
         }
     }
@@ -56,6 +61,15 @@ export class ShowMovieComponent extends React.Component<any, any>{
         console.log(this.state.movie.Title);
       }
     
+      submitFavorite = async (event:SyntheticEvent) => {
+        event.preventDefault()
+         let Message = await apiUnblock(this.state.unblock, this.props.user.role)
+        this.setState({
+            ...this.state,
+            Message: Message
+        })
+    }
+
 
     
       addDefaultSrc(event:any) {
@@ -74,6 +88,7 @@ export class ShowMovieComponent extends React.Component<any, any>{
     }
 
       render(){
+
           
 
           if(this.props.user != null){
@@ -161,5 +176,6 @@ export class ShowMovieComponent extends React.Component<any, any>{
            }
 
           
+
       }
 }
