@@ -125,7 +125,6 @@ export class SearchMoviesComponent extends React.Component<any, IMovieSearchStat
                         
 
                       </div>
-                    </div>
                 
                    
 

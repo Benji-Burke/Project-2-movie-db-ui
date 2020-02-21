@@ -61,14 +61,7 @@ export class ShowMovieComponent extends React.Component<any, any>{
         console.log(this.state.movie.Title);
       }
     
-      submitFavorite = async (event:SyntheticEvent) => {
-        event.preventDefault()
-         let Message = await apiUnblock(this.state.unblock, this.props.user.role)
-        this.setState({
-            ...this.state,
-            Message: Message
-        })
-    }
+     
 
 
     
